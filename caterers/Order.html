@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CaterBind</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+  <style> body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #f9f9f9;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* Header */
+  header {
+    background: #ff6f61;
+    padding: 20px 0;
+    color: white;
+  }
+
+  header .logo {
+    font-size: 24px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+  }
+
+  header .logo img {
+    width: 120px;
+    margin-right: 10px;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+
+  nav ul li a {
+    color: white;
+  }
+root {
+    --primary: #2c3e50;
+    --secondary: #e74c3c;
+    --accent: #3498db;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    padding: 2rem;
+    background: #ecf0f1;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.section {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Cuisine Expertise Checklist */
+.cuisine-checklist {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.cuisine-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cuisine-item:hover {
+    border-color: var(--accent);
+}
+
+.cuisine-item.selected {
+    border-color: var(--secondary);
+    background: #ffeeec;
+}
+
+input[type="checkbox"] {
+    margin-right: 1rem;
+    accent-color: var(--secondary);
+}
+
+/* Calendar from Database */
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    margin-top: 1rem;
+}
+
+.calendar-day {
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+    min-height: 100px;
+}
+
+.has-booking {
+    background: #e8f6f3;
+    border-color: var(--accent);
+}
+
+.booking-details {
+    font-size: 0.8em;
+    margin-top: 5px;
+    color: var(--primary);
+}
+</style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+              <div class="logo">
+                <img src="\Users\user\Desktop\New folder\logo.jpeg" alt="Logo">CaterBind
+              </div>
+              <ul>
+                  <li><a href="homepage.html">Home</a></li>
+                  <li><a href="services.html">Services</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                  <li><a href="login.html" class="icon-link"><i class="fas fa-user"></i> Login</a></li>
+                  <li><a href="profile.html" class="icon-link"><i class="fas fa-user-plus"></i> Profile</a></li>
+              </ul>
+            </nav>
+          </div>
+        </header>
+<div class="container">
+    <!-- Cuisine Expertise Section -->
+    <div class="section">
+        <h2>Cuisine Expertise Checklist</h2>
+        <div class="cuisine-checklist">
+            <div class="cuisine-item">
+                <input type="checkbox" id="indian" data-price="60">
+                <label for="indian">Indian Cuisine 🌶️</label>
+            </div>
+            <div class="cuisine-item">
+                <input type="checkbox" id="italian" data-price="75">
+                <label for="italian">Italian Cuisine 🍝</label>
+            </div>
+            <div class="cuisine-item">
+                <input type="checkbox" id="Swahili" data-price="200">
+                <label for="Swahili">Swahili Cuisine </label>
+            </div> <div class="cuisine-item">
+                <input type="checkbox" id="Traditional" data-price="250">
+                <label for="Traditional">Traditional Cuisine </label>
+            </div> <div class="cuisine-item">
+                <input type="checkbox" id="seafood" data-price="300">
+                <label for="seafood">sea Cuisine </label>
+            </div> <div class="cuisine-item">
+                <input type="checkbox" id="exotic" data-price="250">
+                <label for="exotic">exotic Cuisine </label>
+            </div> <div class="cuisine-item">
+                <input type="checkbox" id="cocktails" data-price="200">
+                <label for="cocktails">cocktails</label>
+            </div> <div class="cuisine-item">
+                <input type="checkbox" id="mocktails" data-price="150">
+                <label for="mocktails">mocktails</label>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="section">
+        <h2>Scheduled Bookings</h2>
+        <div class="calendar" id="calendar">
+        </div>
+    </div>
+
+    <!-- Invoice Generator -->
+    <div class="section" style="grid-column: span 2;">
+        <h2>Invoice Generator</h2>
+        <div id="invoice-output"></div>
+        <button onclick="generateInvoice()">Generate Invoice</button>
+    </div>
+</div>
+
+<script>
+// Sample database data
+const database = {
+    bookings: [
+        { date: '2023-10-15', event: 'Wedding', people: 150, cuisine: 'Indian' },
+        { date: '2023-10-20', event: 'Corporate', people: 80, cuisine: 'Italian' }
+    ],
+    cuisines: [
+        { id: 'indian', name: 'Indian', price: 60 },
+        { id: 'italian', name: 'Italian', price: 75 }
+    ]
+};
+
+// Initialize Calendar
+function initCalendar() {
+    const calendarDiv = document.getElementById('calendar');
+    const daysInMonth = 31; // Example for October
+    
+    // Generate calendar days
+    for (let i = 1; i <= daysInMonth; i++) {
+        const day = document.createElement('div');
+        day.className = 'calendar-day';
+        day.textContent = i;
+        
+        // Check for bookings
+        const date = `2023-10-${i.toString().padStart(2, '0')}`;
+        const booking = database.bookings.find(b => b.date === date);
+        
+        if(booking) {
+            day.classList.add('has-booking');
+            day.innerHTML += `<div class="booking-details">
+                ${booking.event}<br>
+                ${booking.people} people
+            </div>`;
+        }
+        
+        calendarDiv.appendChild(day);
+    }
+}
+
+// Cuisine Selection
+document.querySelectorAll('.cuisine-item input').forEach(checkbox => {
+    checkbox.addEventListener('change', () => {
+        checkbox.parentElement.classList.toggle('selected', checkbox.checked);
+    });
+});
+
+// Invoice Generation
+function generateInvoice() {
+    const selectedCuisines = Array.from(document.querySelectorAll('.cuisine-item input:checked'))
+        .map(checkbox => ({
+            name: checkbox.nextElementSibling.textContent,
+            price: parseFloat(checkbox.dataset.price)
+        }));
+
+    const total = selectedCuisines.reduce((sum, cuisine) => sum + cuisine.price, 0);
+    
+    const invoiceHTML = `
+        <h3>Selected Cuisines</h3>
+        <ul>
+            ${selectedCuisines.map(c => `<li>${c.name} - ₹${c.price}/person</li>`).join('')}
+        </ul>
+        <h4>Total Base Price: ₹${total}/person</h4>
+    `;
+
+    document.getElementById('invoice-output').innerHTML = invoiceHTML;
+}
+
+// Initialize
+document.addEventListener('DOMContentLoaded', initCalendar);
+// Example using Fetch API
+async function loadBookings() {
+    try {
+        const response = await fetch('/api/bookings');
+        const bookings = await response.json();
+        // Process and display bookings
+    } catch (error) {
+        console.error('Error loading bookings:', error);
+    }
+}
+
+async function loadCuisines() {
+    const response = await fetch('/api/cuisines');
+    return await response.json();
+}// Add to invoice generation function
+function addToGoogleCalendar(eventDetails) {
+    const event = {
+        'summary': `Catering: ${eventDetails.eventType}`,
+        'start': { 'dateTime': eventDetails.startTime },
+        'end': { 'dateTime': eventDetails.endTime }
+    };
+
+    gapi.client.calendar.events.insert({
+        'calendarId': 'primary',
+        'resource': event
+    }).then(response => {
+        console.log('Event created:', response.htmlLink);
+    });
+}
+</script>
+</body>
+</html>
+
+   

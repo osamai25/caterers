@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu- Services</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #ff6f61; 
+            color: #fff;
+            padding: 1rem 0;
+        }
+
+        .container {
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 50px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        ul li {
+            margin-left: 20px;
+        }
+
+        ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        ul li a.active {
+            border-bottom: 2px solid #fff;
+        }
+
+        .cta-button {
+            background: #ff6f61;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #ff8566; 
+        }
+
+        footer {
+            background: #ff6f61; 
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .gallery-item img {
+            width: 300px; 
+            height: 200px; 
+            object-fit: cover; 
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">
+          <img src="\Users\user\Desktop\New folder\logo.jpeg" alt="Logo">CaterCo.
+        </div>
+        <ul>
+           
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html" class="icon-link"><i class="fas fa-user"></i> Login</a></li>
+            <li><a href="profile.html" class="icon-link"><i class="fas fa-user-plus"></i> Profile</a></li>
+            <li><a href="Services.html" class="active">Services</a></li>
+            <li><a href="homepage.html">Home</a></li></ul>
+        <a href="#" class="cta-button">Get a Quote</a>
+      </nav>
+    </div>
+  </header>
+    <header>
+        <h1>Our Services</h1>
+        <p>Explore our wide range of catering options for corporate events.</p>
+    </header>
+    <main>
+        <section class="gallery">
+            <h2>Corporate Event Menu Gallery</h2>
+            <div class="gallery-grid">
+                <!-- Appetizers -->
+                <div class="gallery-item">
+                    <img src="\Users\user\Desktop\New folder\island appetizer.jpeg" alt="island">
+                    <img src="\Users\user\Desktop\New folder\Shrimp-Cocktail-Appetizer-.jpg" alt="shrimp cocktail">
+                    <img src="\Users\user\Desktop\New folder\Vegetable-Skewer-Cocktail-Recipe-Appetizer-.jpg" alt="vegetable skewer">
+                    <div class="overlay">
+                        <h3>Appetizers</h3>
+                        <p>Delicious starters to kick off your event.</p>
+                    </div>
+                </div>
+                <!-- Soup -->
+                <div class="gallery-item">
+                    <img src="\Users\user\Desktop\New folder\_Easy-Carrot-Soup-.jpg" alt="carrot soup">
+                    <img src="\Users\user\Desktop\New folder\Italian-Lentil-Soup-.jpg" alt="lentil Soup">
+                    <img src="\Users\user\Desktop\New folder\ham and potato soup.jpg" alt="ham and potato Soup">
+                    <img src="\Users\user\Desktop\New folder\tomato soup.jpeg" alt="tomato soup">
+                    <div class="overlay">
+                        <h3>Soup</h3>
+                        <p>Warm and comforting soups for any occasion.</p>
+                    </div>
+                </div>
+                <!-- Entree -->
+                <div class="gallery-item">
+                    <img src="\Users\user\Desktop\New folder\chicken entree.jpeg" alt="chicken">
+                    <img src="\Users\user\Desktop\New folder\creamy entree.jpeg" alt="creamy">
+                    <img src="\Users\user\Desktop\New folder\salmon entree.jpg" alt="salmon">
+                    <div class="overlay">
+                        <h3>Entree</h3>
+                        <p>Gourmet main courses to satisfy your guests.</p>
+                    </div>
+                </div>
+                <!-- Beverages -->
+                <div class="gallery-item">
+                    <img src="\Users\user\Desktop\New folder\cold beveraged.jpeg" alt="cold drinks">
+                    <img src="\Users\user\Desktop\New folder\phillipine beverage.jpeg" alt="phillipine">
+                    <img src="\Users\user\Desktop\New folder\indian beverage.jpeg" alt="indian">
+                    <img src="https://via.placeholder.com/300x200?text=Beverages" alt="Beverages">
+                    <div class="overlay">
+                        <h3>Beverages</h3>
+                        <p>Refreshing drinks to complement your meal.</p>
+                    </div>
+                </div>
+                <!-- Dessert -->
+                <div class="gallery-item">
+                    <img src="\Users\user\Desktop\New folder\fruit tarts.jpeg" alt="fruit tarts">
+                    <img src="\Users\user\Desktop\New folder\white chocolate mousse.jpeg" alt="chocolate mousse">
+                    <img src="\Users\user\Desktop\New folder\karachi.jpeg" alt="karachi">
+                    <div class="overlay">
+                        <h3>Dessert</h3>
+                        <p>Sweet treats to end your event on a high note.</p>
+                    </div>
+                </div>
+                <!-- Breakfast -->
+                <div class="gallery-item">
+                    <img src="\Users\user\Desktop\New folder\waffles.jpeg" alt="waffles">
+                    <img src="\Users\user\Desktop\New folder\pancake.jpeg" alt="pancake">
+                    <img src="\Users\user\Desktop\New folder\Fully-Loaded-Cheesy-Breakfast-Casserole.jpg" alt="Cheesy-Casserole">
+                    <div class="overlay">
+                        <h3>Breakfast</h3>
+                        <p>Hearty breakfast options for morning events.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 CaterBind All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

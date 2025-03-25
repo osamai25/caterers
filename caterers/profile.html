@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CaterBind - Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #FF6B6B;
+            --secondary-color: #4ECDC4;
+            --accent-color: #FFE66D;
+            --dark-color: #2C3E50;
+            --light-color: #F9F9F9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            background-color: var(--light-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: var(--primary-color);
+            color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 0.5rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            margin-left: auto;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .cta-button {
+            background: var(--accent-color);
+            color: var(--dark-color);
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            margin-left: 2rem;
+        }
+
+        main {
+            flex: 1;
+            padding: 2rem 0;
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .sidebar {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .dashboard-content {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .dashboard-card {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            margin-bottom: 1.5rem;
+            color: var(--dark-color);
+        }
+
+        h3 {
+            margin-bottom: 1rem;
+            color: #34495e;
+        }
+        .orders-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .orders-table th,
+        .orders-table td {
+            padding: 1.2rem;
+            text-align: left;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .orders-table th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .orders-table tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .event-avatar {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .avatar-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .status-badge {
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .status-pending {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+
+        .status-in-progress {
+            background-color: #cce5ff;
+            color: #004085;
+        }
+
+        .status-completed {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background-color: #e9ecef;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        /* Responsive Table */
+        @media (max-width: 768px) {
+            .orders-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body><header>
+    <div class="container">
+        <nav>
+            <div class="logo">
+                <img src="\Users\user\Desktop\New folder\logo.jpeg" alt="CaterBind Logo">CaterBind
+            </div>
+            <ul>
+                <li><a href="profile.html" class="active"><i class="icon-link"></i>Profile</a></li>
+                <li><a href="homepage.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html" class="icon-link"><i class="fas fa-user"></i> Login</a></li>
+            </ul>
+            <a href="#" class="cta-button">Get a Quote</a>
+        </nav>
+    </div>
+</header>
+<main>
+    <div class="dashboard">
+        <aside class="sidebar">
+            <h2>Dashboard</h2>
+            <ul>
+                <li><a href="#">Overview</a></li>
+                <li><a href="Order.html">Orders</a></li>
+                <li><a href="#">Settings</a></li>
+            </ul>
+        </aside>
+        <div class="dashboard-content">
+            <div class="dashboard-card">
+                <h3>Welcome to your dashboard</h3>
+                <p>Here you can manage your profile, view orders, and update settings.</p>
+            </div>
+
+    <div class="dashboard-card">
+        <h3><i class="fas fa-clipboard-list"></i> Recent Orders</h3>
+        <table class="orders-table">
+            <thead>
+                <tr>
+                    <th>Order #</th>
+                    <th>Event</th>
+                    <th>Feedback</th>
+                    <th>Status</th>
+                    <th>Progress</th>
+                </tr>
+            </thead>
+            <tbody id="orders-body">
+            </tbody>
+        </table>
+    </div>
+   
+    <script>
+        function populateOrders() {
+            const tbody = document.getElementById('orders-body');
+            
+            orders.forEach(order => {
+                const row = document.createElement('tr');
+                
+                row.innerHTML = `
+                    <td>${order.orderNumber}</td>
+                    <td>
+                        <div class="event-avatar">
+                            <img src="${order.avatar}" class="avatar-img" alt="Event">
+                            ${order.eventTitle}
+                        </div>
+                    </td>
+                    <td>${order.feedback}</td>
+                    <td>
+                        <span class="status-badge status-${order.status.toLowerCase().replace(' ', '-')}">
+                            ${order.status}
+                        </span>
+                    </td>
+                    <td>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: ${order.progress}%"></div>
+                        </div>
+                        ${order.progress}%
+                    </td>
+                `;
+
+                tbody.appendChild(row);
+            });
+        }
+
+        // Load orders when page loads
+        document.addEventListener('DOMContentLoaded', populateOrders);
+
+        // Add real-time updates (example using setTimeout)
+        function updateOrderStatus() {
+            // You would typically make an API call here
+            setTimeout(() => {
+                console.log('Updating orders...');
+                // Add your update logic here
+            }, 5000);
+        }
+
+        updateOrderStatus();// Example using fetch
+async function fetchOrders() {
+    try {
+        const response = await fetch('/api/orders');
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Error fetching orders:', error);
+    }
+}document.querySelectorAll('.orders-table th').forEach(header => {
+    header.addEventListener('click', () => {
+        const column = header.textContent;
+        console.log(`Sort by ${column}`);
+        // Add sorting logic
+    });
+});<div class="table-controls">
+    <input type="text" id="search-orders" placeholder="Search orders..."></input>
+    <select id="filter-status">
+        <option value="all">All Statuses</option>
+        <option value="pending">Pending</option>
+        <option value="in-progress">In Progress</option>
+        <option value="completed">Completed</option>
+    </select>
+</div>
+    </script>
+     <footer>
+        <div class="container">
+            <p>&copy; 2025 CaterBind. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
+ 
+ 

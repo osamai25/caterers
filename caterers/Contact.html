@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - CaterBind.</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      background-color: #f9f9f9;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    header {
+      background: #0077b6;
+      padding: 20px 0;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header .logo {
+      font-size: 24px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+    }
+
+    header .logo img {
+      width: 30px;
+      margin-right: 10px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      font-weight: 600;
+    }
+
+    .cta-button {
+      background: #00b4d8;
+      padding: 10px 20px;
+      border-radius: 5px;
+      color: white;
+      font-weight: 600;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      padding: 50px 0;
+      text-align: center;
+    }
+
+    .contact-section h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #0077b6;
+    }
+
+    .contact-section p {
+      font-size: 18px;
+      color: #666;
+      margin-bottom: 40px;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+      height: 150px;
+    }
+
+    .contact-form button {
+      background: #00b4d8;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .contact-form button:hover {
+      background: #0077b6;
+    }
+
+    /* Contact Info */
+    .contact-info {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 50px;
+    }
+
+    .contact-info div {
+      text-align: center;
+    }
+
+    .contact-info h3 {
+      font-size: 20px;
+      color: #0077b6;
+      margin-bottom: 10px;
+    }
+
+    .contact-info p {
+      font-size: 16px;
+      color: #666;
+    }
+
+    /* Footer */
+    footer {
+      background: #0077b6;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    footer .social-icons {
+      margin-bottom: 20px;
+    }
+
+    footer .social-icons a {
+      margin: 0 10px;
+      color: white;
+    }
+
+    footer p {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">
+          <img src="\Users\user\Desktop\New folder\logo.jpeg" alt="Logo"> CaterBind.
+        </div>
+        <ul>
+          <li><a href="homepage.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="login.html" class="icon-link"><i class="fas fa-user"></i> Login</a></li>
+          <li><a href="profile.html" class="icon-link"><i class="fas fa-user-plus"></i> Profile</a></li>
+        
+       
+        </ul>
+        <a href="contact.html" class="cta-button">Get a Quote</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="container">
+      <h1>Contact Us</h1>
+      <p>We'd love to hear from you! Whether you have a question, need a quote, or just want to say hello, feel free to reach out.</p>
+      <div class="contact-form">
+        <form id="contactForm">
+          <input type="text" id="name" placeholder="Your Name" required>
+          <input type="email" id="email" placeholder="Your Email" required>
+          <input type="text" id="subject" placeholder="Subject" required>
+          <textarea id="message" placeholder="Your Message" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+        <p id="formMessage" style="display: none; margin-top: 10px;"></p>
+      </div>
+      <div class="contact-info">
+        <div>
+          <h3>Email</h3>
+          <p>info@caterease Co.com</p>
+        </div>
+        <div>
+          <h3>Phone</h3>
+          <p>+1 (123) 456-7890</p>
+        </div>
+        <div>
+          <h3>Address</h3>
+          <p>123 Foodie Lane, Culinary City</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="social-icons">
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">Pinterest</a>
+        <a href="#">YouTube</a>
+      </div>
+      <p>© 2025 Caterease Co. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Form Validation
+    const contactForm = document.getElementById('contactForm');
+    const formMessage = document.getElementById('formMessage');
+
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value;
+
+      if (name && email && subject && message) {
+        formMessage.textContent = "Thank you! Your message has been sent.";
+        formMessage.style.color = "#0077b6";
+        formMessage.style.display = "block";
+        contactForm.reset();
+      } else {
+        formMessage.textContent = "Please fill out all fields.";
+        formMessage.style.color = "#ff6f61";
+        formMessage.style.display = "block";
+      }
+    });
+  </script>
+</body>
+</html>
