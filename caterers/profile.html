@@ -3,344 +3,346 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CaterBind - Dashboard</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Caterer Profile</title>
     <style>
         :root {
-            --primary-color: #FF6B6B;
-            --secondary-color: #4ECDC4;
-            --accent-color: #FFE66D;
-            --dark-color: #2C3E50;
-            --light-color: #F9F9F9;
+            --primary: #4a6fa5;
+            --secondary: #ff7e5f;
+            --light: #f8f9fa;
+            --dark: #343a40;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            transition: all 0.3s ease;
-        }
-
+        
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
             color: #333;
-            background-color: var(--light-color);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
+            line-height: 1.6;
         }
-
-        header {
-            background: var(--primary-color);
-            color: #fff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            padding: 1rem 0;
-        }
-
+        
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+            background: #f7b2ad;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 10px;
         }
-
-        nav {
+        
+        .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
         }
+        header {
+      background:#CEB7B3;
+      padding: 20px 0;
+      color: rgb(15, 12, 12);
+    }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #fff;
-        }
+    header .logo {
+      font-size: 24px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+    }
 
-        .logo img {
-            height: 40px;
-            margin-right: 0.5rem;
-        }
+    header .logo img {
+      width: 120px;
+      margin-right: 10px;
+    }
 
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-            margin-left: auto;
-        }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        nav a {
-            text-decoration: none;
-            color: #fff;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
 
-        nav a:hover {
-            color: var(--accent-color);
-        }
+    nav ul li a {
+      color:rgb(15, 12, 12);
+      font-weight: 600;
+    }
 
-        .cta-button {
-            background: var(--accent-color);
-            color: var(--dark-color);
-            padding: 0.5rem 1.5rem;
-            border-radius: 5px;
-            margin-left: 2rem;
-        }
+    .cta-button {
+      background: #ff8c42;
+      padding: 10px 20px;
+      border-radius: 5px;
+      color: white;
+      font-weight: 600;
+    }
+.icon-link {
+    display: flex;
+    align-items: center;
+    gap: 8px; 
+    color: black;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
 
-        main {
-            flex: 1;
-            padding: 2rem 0;
-        }
-
-        .dashboard {
-            display: grid;
-            grid-template-columns: 250px 1fr;
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-
-        .sidebar {
-            background: #fff;
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .dashboard-content {
-            display: grid;
-            gap: 1.5rem;
-        }
-
-        .dashboard-card {
-            background: #fff;
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        h2 {
-            margin-bottom: 1.5rem;
-            color: var(--dark-color);
-        }
-
-        h3 {
-            margin-bottom: 1rem;
-            color: #34495e;
-        }
-        .orders-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 2rem;
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .orders-table th,
-        .orders-table td {
-            padding: 1.2rem;
-            text-align: left;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        .orders-table th {
-            background-color: #f8f9fa;
-            font-weight: 600;
-            color: var(--dark-color);
-        }
-
-        .orders-table tr:hover {
-            background-color: #f8f9fa;
-        }
-
-        .event-avatar {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .avatar-img {
-            width: 40px;
-            height: 40px;
+        
+        .profile-pic {
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             object-fit: cover;
+            border: 5px solid var(--primary);
         }
-
-        .status-badge {
-            padding: 0.4rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
+        
+        h1, h2 {
+            color: var(--primary);
         }
-
-        .status-pending {
-            background-color: #fff3cd;
-            color: #856404;
+        
+        .business-name {
+            font-size: 2rem;
+            margin: 0;
+            color: var(--dark);
         }
-
-        .status-in-progress {
-            background-color: #cce5ff;
-            color: #004085;
+        
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: var(--light);
+            border-radius: 8px;
         }
-
-        .status-completed {
-            background-color: #d4edda;
-            color: #155724;
+        
+        .form-group {
+            margin-bottom: 15px;
         }
-
-        .progress-bar {
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        input[type="text"],
+        input[type="number"],
+        textarea,
+        select {
             width: 100%;
-            height: 8px;
-            background-color: #e9ecef;
+            padding: 10px;
+            border: 1px solid #ddd;
             border-radius: 4px;
-            overflow: hidden;
+            font-size: 16px;
         }
-
-        .progress-fill {
-            height: 100%;
-            background-color: var(--primary-color);
-            transition: width 0.3s ease;
+        
+        textarea {
+            min-height: 100px;
+            resize: vertical;
         }
-
-        /* Responsive Table */
-        @media (max-width: 768px) {
-            .orders-table {
-                display: block;
-                overflow-x: auto;
-            }
+        
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        .checkbox-item input {
+            margin-right: 8px;
+        }
+        
+        .pricing-options {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .pricing-option {
+            display: flex;
+            align-items: center;
+        }
+        
+        .skills-input {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .skill-tag {
+            background: var(--primary);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .skill-tag button {
+            background: none;
+            border: none;
+            color: white;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+        
+        .cv-upload {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .cv-preview {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            background: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: #e06b4a;
+        }
+        
+        .btn-secondary {
+            background: var(--primary);
+        }
+        
+        .btn-secondary:hover {
+            background: #3a5a8c;
         }
     </style>
 </head>
-<body><header>
+<header>
     <div class="container">
-        <nav>
-            <div class="logo">
-                <img src="\Users\user\Desktop\New folder\logo.jpeg" alt="CaterBind Logo">CaterBind
-            </div>
-            <ul>
-                <li><a href="profile.html" class="active"><i class="icon-link"></i>Profile</a></li>
-                <li><a href="homepage.html">Home</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="login.html" class="icon-link"><i class="fas fa-user"></i> Login</a></li>
-            </ul>
-            <a href="#" class="cta-button">Get a Quote</a>
-        </nav>
-    </div>
-</header>
-<main>
-    <div class="dashboard">
-        <aside class="sidebar">
-            <h2>Dashboard</h2>
-            <ul>
-                <li><a href="#">Overview</a></li>
-                <li><a href="Order.html">Orders</a></li>
-                <li><a href="#">Settings</a></li>
-            </ul>
-        </aside>
-        <div class="dashboard-content">
-            <div class="dashboard-card">
-                <h3>Welcome to your dashboard</h3>
-                <p>Here you can manage your profile, view orders, and update settings.</p>
-            </div>
-
-    <div class="dashboard-card">
-        <h3><i class="fas fa-clipboard-list"></i> Recent Orders</h3>
-        <table class="orders-table">
-            <thead>
-                <tr>
-                    <th>Order #</th>
-                    <th>Event</th>
-                    <th>Feedback</th>
-                    <th>Status</th>
-                    <th>Progress</th>
-                </tr>
-            </thead>
-            <tbody id="orders-body">
-            </tbody>
-        </table>
-    </div>
-   
-    <script>
-        function populateOrders() {
-            const tbody = document.getElementById('orders-body');
-            
-            orders.forEach(order => {
-                const row = document.createElement('tr');
-                
-                row.innerHTML = `
-                    <td>${order.orderNumber}</td>
-                    <td>
-                        <div class="event-avatar">
-                            <img src="${order.avatar}" class="avatar-img" alt="Event">
-                            ${order.eventTitle}
-                        </div>
-                    </td>
-                    <td>${order.feedback}</td>
-                    <td>
-                        <span class="status-badge status-${order.status.toLowerCase().replace(' ', '-')}">
-                            ${order.status}
-                        </span>
-                    </td>
-                    <td>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: ${order.progress}%"></div>
-                        </div>
-                        ${order.progress}%
-                    </td>
-                `;
-
-                tbody.appendChild(row);
-            });
-        }
-
-        // Load orders when page loads
-        document.addEventListener('DOMContentLoaded', populateOrders);
-
-        // Add real-time updates (example using setTimeout)
-        function updateOrderStatus() {
-            // You would typically make an API call here
-            setTimeout(() => {
-                console.log('Updating orders...');
-                // Add your update logic here
-            }, 5000);
-        }
-
-        updateOrderStatus();// Example using fetch
-async function fetchOrders() {
-    try {
-        const response = await fetch('/api/orders');
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        console.error('Error fetching orders:', error);
-    }
-}document.querySelectorAll('.orders-table th').forEach(header => {
-    header.addEventListener('click', () => {
-        const column = header.textContent;
-        console.log(`Sort by ${column}`);
-        // Add sorting logic
-    });
-});<div class="table-controls">
-    <input type="text" id="search-orders" placeholder="Search orders..."></input>
-    <select id="filter-status">
-        <option value="all">All Statuses</option>
-        <option value="pending">Pending</option>
-        <option value="in-progress">In Progress</option>
-        <option value="completed">Completed</option>
-    </select>
-</div>
-    </script>
-     <footer>
-        <div class="container">
-            <p>&copy; 2025 CaterBind. All rights reserved.</p>
+      <nav>
+        <div class="logo">
+          <img src="\Users\user\Desktop\New folder\logo.jpeg" alt="Logo">CaterBind
         </div>
-    </footer>
-</body>
-</html>
- 
- 
+        <ul>
+            <li><a href="profile.html"class="icon-link"><i class="fas fa-user"></i>Profile</a></li>
+            <li><a href="homepage.html">Home</a></li>
+            <li><a href="inbox.html">Inbox</a></li>
+            <li><a href="Dashboard.html">Dashboard</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+<body>
+    <div class="container">
+        <div class="header">
+            <div>
+                <h1 class="business-name" id="businessNameDisplay">[Business Name]</h1>
+                <p>Catering Professional Profile</p>
+            </div>
+            <img src="https://via.placeholder.com/120" alt="Profile Picture" class="profile-pic" id="profilePic">
+        </div>
+        
+        <div class="section">
+            <h2>Basic Information</h2>
+            <div class="form-group">
+                <label for="businessName">Business Name</label>
+                <input type="text" id="businessName" placeholder="Enter your business name">
+            </div>
+            <div class="form-group">
+                <label for="bio">Professional Bio</label>
+                <textarea id="bio" placeholder="Tell clients about your catering experience, specialties, and approach..."></textarea>
+            </div>
+            <div class="form-group">
+                <label for="maxGuests">Maximum Number of Guests</label>
+                <input type="number" id="maxGuests" min="1" placeholder="50">
+            </div>
+            <div class="form-group">
+                <label>Upload CV/Resume</label>
+                <div class="cv-upload">
+                    <input type="file" id="cvUpload" accept=".pdf,.doc,.docx">
+                    <span class="cv-preview" id="cvFileName">No file selected</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Cuisine Expertise</h2>
+            <p>Select all cuisines you specialize in:</p>
+            <div class="checkbox-group">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="cuisine1" name="cuisine" value="Italian">
+                    <label for="cuisine1">Italian</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="cuisine2" name="cuisine" value="French">
+                    <label for="cuisine2">French</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="cuisine3" name="cuisine" value="Indian">
+                    <label for="cuisine3">Indian</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="cuisine4" name="cuisine" value="Chinese">
+                    <label for="cuisine4">Chinese</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="cuisine5" name="cuisine" value="Mexican">
+                    <label for="cuisine5">Mexican</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="cuisine6" name="cuisine" value="Mediterranean">
+                    <label for="cuisine6">Mediterranean</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="cuisine7" name="cuisine" value="American">
+                    <label for="cuisine7">American</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="cuisine8" name="cuisine" value="Japanese">
+                    <label for="cuisine8">Japanese</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="cuisine9" name="cuisine" value="Vegan">
+                    <label for="cuisine9">Vegan</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="cuisine10" name="cuisine" value="Custom">
+                    <label for="cuisine10">Custom/Fusion</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="cuisine11" name="cuisine" value="Traditional">
+                    <label for="cuisine10">traditional</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="cuisine10" name="cuisine" value="Swahili">
+                    <label for="cuisine10">Swahili</label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Pricing Model</h2>
+            <p>Select how you charge for your services:</p>
+            <div class="pricing-options">
+                <div class="pricing-option">
+                    <input type="radio" id="hourly" name="pricing" value="hourly">
+                    <label for="hourly">Hourly Rate</label>
+                </div>
+                <div class="pricing-option">
+                    <input type="radio" id="daily" name="pricing" value="daily">
+                    <label for="daily">Daily Rate</label>   
+                </div>

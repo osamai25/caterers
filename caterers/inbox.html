@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caterer Inbox</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Arial', sans-serif;
+    }
+    header {
+      background: #8e3fde;
+      padding: 20px 0;
+      color: rgb(0, 0, 0);
+    }
+
+    header .logo {
+      font-size: 24px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+    }
+
+    header .logo img {
+      width: 120px;
+      margin-right: 10px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      font-weight: 600;
+    }
+
+    .cta-button {
+      background: #5b30e9;
+      padding: 10px 20px;
+      border-radius: 5px;
+      color: white;
+      font-weight: 600;
+    }
+.icon-link {
+    display: flex;
+    align-items: center;
+    gap: 8px; 
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+
+    .inbox-container {
+        display: flex;
+        height: 100vh;
+        background-color: #f0f4f8; 
+    }
+
+    .conversation-list {
+        width: 350px;
+        background-color: #e3f2fd; 
+        border-right: 1px solid #bbdefb; 
+        overflow-y: auto;
+    }
+
+    .message-area {
+        flex: 1;
+        padding: 20px;
+        background-color: #ffffff;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .conversation-item {
+        padding: 15px;
+        border-bottom: 1px solid #bbdefb; /* Soft blue border */
+        cursor: pointer;
+        transition: background-color 0.2s;
+    }
+
+    .conversation-item:hover {
+        background-color: #c5cae9; /* Light periwinkle */
+    }
+
+    .conversation-item.active {
+        background-color: #b3e5fc; /* Light sky blue */
+    }
+
+    .unread-badge {
+        background-color: #1976d2; /* Rich blue */
+        color: white;
+        padding: 2px 8px;
+        border-radius: 12px;
+        font-size: 0.8em;
+        float: right;
+    }
+
+    .message-thread {
+        flex: 1;
+        overflow-y: auto;
+        padding: 20px;
+        border-bottom: 1px solid #bbdefb; /* Soft blue border */
+    }
+
+    .message {
+        margin-bottom: 15px;
+        padding: 10px 15px;
+        border-radius: 15px;
+        max-width: 70%;
+    }
+
+    .received {
+        background-color: #e3f2fd; /* Light blue */
+        margin-right: auto;
+        border: 1px solid #bbdefb; /* Soft blue border */
+    }
+
+    .sent {
+        background-color: #1976d2; 
+        color: white;
+        margin-left: auto;
+    }
+
+    .timestamp {
+        font-size: 0.8em;
+        color: #546e7a;
+        margin-top: 5px;
+    }
+
+    .reply-box {
+        padding: 20px;
+        background-color: #f5faff; 
+    }
+
+    .reply-input {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #90caf9; 
+        border-radius: 25px;
+        resize: none;
+        background-color: #f5faff;
+    }
+
+    .send-button {
+        background-color: #1565c0; 
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 20px;
+        cursor: pointer;
+        float: right;
+        margin-top: 10px;
+        transition: background-color 0.2s;
+    }
+
+    .send-button:hover {
+        background-color: #0d47a1; 
+    }
+
+    .client-info {
+        padding: 15px;
+        border-bottom: 1px solid #bbdefb; 
+        background-color: #1976d2; 
+        color: white;
+    }
+
+    .client-info h2 {
+        color: white;
+    }
+</style>
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+          <nav>
+            <div class="logo">
+              <img src="\Users\user\Desktop\New folder\logo.jpeg" alt="Logo">CaterBind
+            </div>
+            <ul>
+              <li><a href="homepage.html">Home</a></li>
+              <li><a href="profile.html"class="icon-link"><i class="fas fa-user"></i>Profile</a></li>
+              <li><a href="inbox.html">Inbox</a></li>
+              <li><a href="Dashboard.html">Dashboard</a></li>
+    
+    
+            </ul>
+            <a href="Contact.html" class="cta-button">Get a Quote</a>
+          </nav>
+    <div class="inbox-container">
+        <!-- Conversation List -->
+        <div class="conversation-list">
+            <div class="client-info">
+                <h2>Messages</h2>
+            </div>
+            <div class="conversation-item active">
+                <h3>John's Wedding</h3>
+                <p>Looking forward to the event!</p>
+                <span class="unread-badge">2</span>
+                <div class="timestamp">10:30 AM</div>
+            </div>
+            <div class="conversation-item">
+                <h3>Corporate Lunch</h3>
+                <p>Can we add vegetarian options?</p>
+                <div class="timestamp">Yesterday</div>
+            </div>
+        </div>
+
+        <!-- Message Area -->
+        <div class="message-area">
+            <div class="message-thread">
+                <div class="message received">
+                    <p>Hi! Just confirming the menu for Saturday.</p>
+                    <div class="timestamp">Client - 9:45 AM</div>
+                </div>
+                <div class="message sent">
+                    <p>Yes, everything is ready. We'll arrive at 10AM.</p>
+                    <div class="timestamp">You - 9:47 AM</div>
+                </div>
+            </div>
+
+            <!-- Reply Box -->
+            <div class="reply-box">
+                <textarea class="reply-input" placeholder="Type your message..."></textarea>
+                <button class="send-button" onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Handle conversation selection
+        document.querySelectorAll('.conversation-item').forEach(item => {
+            item.addEventListener('click', () => {
+                // Remove active class from all items
+                document.querySelectorAll('.conversation-item').forEach(i => {
+                    i.classList.remove('active');
+                });
+                // Add active class to clicked item
+                item.classList.add('active');
+                // Update message thread (you would fetch messages from server here)
+                updateMessageThread(item);
+            });
+        });
+
+        function updateMessageThread(conversation) {
+            const messageThread = document.querySelector('.message-thread');
+            // Clear current messages
+            messageThread.innerHTML = '';
+            // Add sample messages (replace with actual data)
+            messageThread.innerHTML = `
+                <div class="message received">
+                    <p>${conversation.querySelector('p').textContent}</p>
+                    <div class="timestamp">Client - 10:30 AM</div>
+                </div>
+                <div class="message sent">
+                    <p>Thank you for your message. We'll respond shortly.</p>
+                    <div class="timestamp">You - 10:31 AM</div>
+                </div>
+            `;
+        }
+
+        function sendMessage() {
+            const input = document.querySelector('.reply-input');
+            const message = input.value.trim();
+            
+            if(message) {
+                const messageThread = document.querySelector('.message-thread');
+                
+                // Create new message element
+                const newMessage = document.createElement('div');
+                newMessage.className = 'message sent';
+                newMessage.innerHTML = `
+                    <p>${message}</p>
+                    <div class="timestamp">You - ${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</div>
+                `;
+
+                // Add to message thread
+                messageThread.appendChild(newMessage);
+                
+                // Clear input
+                input.value = '';
+                
+                // Scroll to bottom
+                messageThread.scrollTop = messageThread.scrollHeight;
+            }
+        }
+
+        // Enter key to send message
+        document.querySelector('.reply-input').addEventListener('keypress', (e) => {
+            if(e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendMessage();
+            }
+        });
+    </script>
+</body>
+</html>
